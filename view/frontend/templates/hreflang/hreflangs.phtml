@@ -1,0 +1,24 @@
+<?php
+/**
+ * @var $block Kg\Hreflang\Block\Hreflang
+ */
+?>
+<?php if ($block->isHreflangEnabled()):?>
+    <?php
+    $hrefUrls = $block->getHreflangUrls();
+    if (!empty($hrefUrls)):
+        ?>
+<meta http-equiv='Content-Language' content='<?= $hrefUrls['current']['lang'] ?>'>
+<meta name='geo.region' content='<?= $hrefUrls['current']['country'] ?>'/>
+
+        <?php foreach ($hrefUrls as $storeId => $hrefUrl): ?>
+            <?php if ($storeId == 1 && $hrefUrl->getUrl()) { ?>
+                <link rel='alternate' hreflang='x-default' href='<?= trim($hrefUrl->getUrl(),'/') ?>'/>
+            <?php } ?>
+
+            <?php if ($storeId != 'current' && $storeId!==$block->getCurrentStoreId() && $hrefUrl->getUrl()): ?>
+                <link rel='alternate' hreflang='<?= $hrefUrl->getCountry() ?>' href='<?= trim($hrefUrl->getUrl(),'/') ?>'/>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+<?php endif; ?>

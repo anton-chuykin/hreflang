@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="websites">
+        <field name="page_relationship">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Kg\Hreflang\Model\Config\Source\DefaultCmsOptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Page Relationship</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="dataScope" xsi:type="string">cms_relationship</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>
